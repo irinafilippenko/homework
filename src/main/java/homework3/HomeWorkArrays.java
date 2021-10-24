@@ -20,7 +20,7 @@ public class HomeWorkArrays {
 //        Седьмой пункт задания.
         comparisonLeftRightArray(new int[]{2, 2, 2, 1, 2, 2, 10, 1});
 //        Восьмой пункт задания.
-        shiftArray(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9}, -2);
+        shiftArray(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 30506);
     }
 
     private static void invertArray1() {
@@ -181,28 +181,29 @@ public class HomeWorkArrays {
         System.out.println("Домашнее задание к уроку 3. Пункт 8.");
         System.out.println("Исходный массив:");
         System.out.println(Arrays.toString(arr));
+        n = n % length;
         if (n > 0) {
-            for (int j = 0;j < n; j++) {
+            for (int j = 0; j < n; j++) {
 //                Сдвиг вправо на один элемент.
                 shiftElement = arr[length - 1];
                 for (int i = (length - 1); i > 0; i--) {
                     arr[i] = arr[i - 1];
                 }
-                arr [0] = shiftElement;
+                arr[0] = shiftElement;
             }
         } else if (n < 0) {
-            for (int j = 0;j > n; j--) {
+            for (int j = 0; j > n; j--) {
 //                Сдвиг влево на один элемент.
                 shiftElement = arr[0];
                 for (int i = 0; i < (length - 1); i++) {
                     arr[i] = arr[i + 1];
                 }
-                arr [length - 1] = shiftElement;
+                arr[length - 1] = shiftElement;
             }
         } else {
             System.out.println("Задан нулевой шаг смещения. Массив остается без смещения.");
         }
-        System.out.println("Смещенный массив на "+n+":");
+        System.out.println("Смещенный массив:");
         System.out.println(Arrays.toString(arr));
     }
 }
