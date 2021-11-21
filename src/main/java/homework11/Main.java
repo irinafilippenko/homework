@@ -25,18 +25,18 @@ public class Main {
         phoneBook.add("Пушкин", "099");
 
         String lastName = "Гоголь";
-        System.out.printf("%nАбонент: "+lastName+" телефон: "+phoneBook.get(lastName));
+        System.out.printf("%nАбонент: " + lastName + " телефон: " + phoneBook.get(lastName));
     }
 
-    private static void countUnrepeatable(String [] originalArray, Set<String> unrepeatable) {
-        for(String color: unrepeatable) {
+    private static void countUnrepeatable(String[] originalArray, Set<String> unrepeatable) {
+        for (String color : unrepeatable) {
             int count = 0;
-            for (String originalColor:originalArray){
-                if (color.equals(originalColor)){
+            for (String originalColor : originalArray) {
+                if (color.equals(originalColor)) {
                     count++;
                 }
             }
-            System.out.printf("%nЦвет «%s» встречается %d раз(а).",color,count);
+            System.out.printf("%nЦвет «%s» встречается %d раз(а).", color, count);
         }
     }
 }
