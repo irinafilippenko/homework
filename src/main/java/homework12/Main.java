@@ -15,8 +15,9 @@ public class Main {
         }
     }
 
-    private static float[] calculateArray(float[] arr) {
+    private static float[] calculateArray(float[] arr, int startI) {
         for (int i = 0; i < arr.length; i++) {
+//            arr[i] = (float) (arr[i] * Math.sin(0.2f + (i + startI) / 5) * Math.cos(0.2f + (i + startI) / 5) * Math.cos(0.4f + (i + startI) / 2));
             arr[i] = (float) (arr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
         }
         return arr;
@@ -27,7 +28,8 @@ public class Main {
         Arrays.fill(arr, 1);
 
         long startTime = System.currentTimeMillis();
-        calculateArray(arr);
+        calculateArray(arr, 0);
+        System.out.println(Arrays.toString(arr));
         System.out.println("Время выполнения первого метода: " + (System.currentTimeMillis() - startTime));
     }
 
@@ -42,12 +44,12 @@ public class Main {
         System.arraycopy(arr, HALF, arr2, 0, HALF);
 
         Thread t1 = new Thread(() -> {
-            calculateArray(arr1);
+            calculateArray(arr1, 0);
 //            System.arraycopy(arr1, 0, arr, 0, HALF);
         });
 
         Thread t2 = new Thread(() -> {
-            calculateArray(arr2);
+            calculateArray(arr2, HALF);
 //            System.arraycopy(arr2, 0, arr, HALF, HALF);
         });
 
@@ -59,6 +61,7 @@ public class Main {
 
         System.arraycopy(arr1, 0, arr, 0, HALF);
         System.arraycopy(arr2, 0, arr, HALF, HALF);
+        System.out.println(Arrays.toString(arr));
 
         System.out.println("Время выполнения второго метода: " + (System.currentTimeMillis() - startTime));
     }
